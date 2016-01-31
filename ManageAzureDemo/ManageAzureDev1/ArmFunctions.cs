@@ -29,6 +29,9 @@ namespace ManageAzureVmDemo
                 client.DefaultRequestHeaders.Add("Authorization", "Bearer " + token);
                 client.BaseAddress = new Uri("https://management.azure.com/");
 
+                azureVmdictionary.Clear();
+                azureVmStatusdictionary.Clear();
+
                 //get all the VM's from the subscription
                 var response = await client.GetAsync(
                 $"/subscriptions/{SubscriptionId}/providers/Microsoft.Compute/virtualMachines?api-version=2015-06-15");

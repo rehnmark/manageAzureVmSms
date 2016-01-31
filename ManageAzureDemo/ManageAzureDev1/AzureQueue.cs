@@ -9,7 +9,8 @@ namespace ManageAzureVmDemo
     {
 
         //method used in the program class to do som cleanup. 
-        //Removes the old queue and recreates it with the same name
+        //Removes the old queue and recreates it with the same name. 
+        //We will wait 60 seconds before moving on the the next step.
         public static void ManageQueue()
         {
 
@@ -22,7 +23,7 @@ namespace ManageAzureVmDemo
             // Retrieve a reference to a queue
             CloudQueue queue = queueClient.GetQueueReference("smsqueue");
             Console.WriteLine(queue.Uri);
-            Console.WriteLine(" Queue exist -remove it to get rid of junk!!");
+            Console.WriteLine("If the queue exist -remove it to get rid of junk!!, then wait 60 sec before continue");
             //remove the Queue if it exists
 
             queue.DeleteIfExists();
